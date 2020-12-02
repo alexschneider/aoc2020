@@ -1,14 +1,8 @@
+use aoc_runner_derive::aoc_lib;
+
 // Days
-pub mod day01;
+pub mod day1;
+pub mod day2;
 
-pub type DayFn = fn(String);
+aoc_lib!{ year = 2020 }
 
-pub fn get_day(day: u32) -> (Option<DayFn>, Option<DayFn>) {
-    match day {
-        1 => (Some(day01::part1), Some(day01::part2)),
-        _ => {
-            println!("Unknown day: {}", day);
-            (None, None)
-        }
-    }
-}
