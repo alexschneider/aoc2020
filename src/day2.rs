@@ -37,8 +37,6 @@ fn part1(input: &[PasswordPolicy]) -> String {
 fn part2(input: &[PasswordPolicy]) -> String {
   input.iter().filter(|policy| {
     let pw: Vec<char> = policy.password.chars().collect();
-    let first_match = pw[policy.num1 - 1] == policy.letter;
-    let second_match = pw[policy.num2 - 1] == policy.letter;
-    first_match ^ second_match
+    (pw[policy.num2 - 1] == policy.letter) ^ (pw[policy.num1 - 1] == policy.letter)
   }).count().to_string()
 }
