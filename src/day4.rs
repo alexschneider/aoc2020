@@ -91,6 +91,6 @@ fn part2(input: &[Passport]) -> String {
         return false;
       }
     }
-     true
+    true
   }).count().to_string()
 }
