@@ -25,9 +25,9 @@ fn part1(input: &str) -> String {
 fn part2(input: &str) -> String {
   let mut seats = seat_ids(input);
   seats.sort_unstable();
-  let peekable_seats = seats.iter().peekable();
+  let mut peekable_seats = seats.iter().peekable();
 
-  for seat in peekable_seats {
+  while let Some(seat) = peekable_seats.next() {
     if &&(seat + 1) != peekable_seats.peek().unwrap() {
       return (seat + 1).to_string()
     }
