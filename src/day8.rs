@@ -1,14 +1,16 @@
-use aoc_runner_derive::{aoc};
+use aoc_runner_derive::{aoc, aoc_generator};
 use std::collections::HashSet;
 
-
-
-#[aoc(day8, part1)]
-fn part1(input: &str) -> String {
-  let program: Vec<(&str, i32)> = input.lines().map(|x| {
+#[aoc_generator(day8)]
+fn program(input: &str) -> Vec<(&str, i32)> {
+  input.lines().map(|x| {
     let spl: Vec<&str> = x.split(' ').collect();
     (spl[0], spl[1].parse::<i32>().unwrap())
-  }).collect();
+  }).collect()
+}
+
+#[aoc(day8, part1)]
+fn part1(program: &[(&str, i32)]) -> String {
   let mut visited = HashSet::new();
   let mut acc: i32 = 0;
   let mut op_index: i32 = 0;
@@ -29,11 +31,8 @@ fn part1(input: &str) -> String {
 }
 
 #[aoc(day8, part2)]
-fn part2(input: &str) -> String {
-  let program: Vec<(&str, i32)> = input.lines().map(|x| {
-    let spl: Vec<&str> = x.split(' ').collect();
-    (spl[0], spl[1].parse::<i32>().unwrap())
-  }).collect();
+fn part2(program: &[(&str, i32)]) -> String {
+  
 
   let mut visited = HashSet::new();
   let mut acc: i32 = 0;
